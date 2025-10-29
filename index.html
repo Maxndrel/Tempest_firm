@@ -1,266 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Tempest Firm</title>
-<style>
-/* HEADER */
-#header {
-  background: #1e3a5f; /* deep blue */
-  font-size: 15px;
-  padding: 5px;
-}
-#title {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 15px;
-  color: #f5f5f5;
-}
-#header address {
-  font-size: 13px;
-  color: #d0d8e0;
-}
-ul {
-  font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
-  list-style: none;
-  float: right;
-}
-li {
-  float: left;
-  padding: 5px;
-}
-li a {
-  font-size: 13px;
-  color: #f5f5f5;
-  text-decoration: none;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-li a:hover {
-  background: #3c6e91;
-  color: #fff;
-}
-li a:visited {
-  color: #a7e4a7;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tempest Firm</title>
+    <style>
+      /* -------------------- GLOBAL STYLES -------------------- */
+      :root {
+        --primary: #1e3a5f;
+        --accent: #3c6e91;
+        --light: #f5f5f5;
+        --gray: #e2e8f0;
+        --text-dark: #333;
+      }
 
-/* DESCRIPTION BAR */
-#Des {
-  text-align: center;
-  background: linear-gradient(to right, #345d82, #e2e8f0);
-  word-spacing: 20px;
-  letter-spacing: 10px;
-  height: 60px;
-  color: #f8f9fa;
-}
-#Middle {
-  padding-top: 1%;
-}
+      * {
+        box-sizing: border-box;
+      }
 
-/* SIDEBAR LINKS */
-#LinksRight {
-  float: right;
-  text-align: left;
-  width: 20%;
-}
-#LinksRight h2 {
-  color: #1e3a5f;
-  border-bottom: 2px solid #ccc;
-}
-#mee {
-  list-style: disc;
-  margin-left: 10px;
-  color: #1e3a5f;
-}
-#mee li {
-  float: none;
-  margin: 4px 0;
-}
-#mee a {
-  text-decoration: none;
-  color: #1e3a5f;
-}
-#mee a:hover {
-  color: #3c6e91;
-}
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background: #f9fafb;
+      }
 
-/* POSTS AREA */
-#AllPost {
-  width: 75%;
-  background: #f1f5f9;
-  text-align: justify;
-  padding: 10px;
-  border-radius: 6px;
-}
-#PostTopic {
-  margin: 1%;
-  font-size: 2em;
-  font-weight: bold;
-  color: #1e3a5f;
-}
-#PostDate {
-  font-style: italic;
-  font-weight: bold;
-  margin-left: 10%;
-  color: #555;
-}
-#PostPicture {
-  background: #64748b;
-  height: 150px;
-  width: 150px;
-  color: #f5f5f5;
-  float: right;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  border-radius: 8px;
-}
-#Post {
-  margin: 2%;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-}
-#PostDetails {
-  background: #e2e8f0;
-  color: #1e3a5f;
-  border: 2px solid #cbd5e1;
-  text-align: center;
-  height: 25px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  border-radius: 4px;
-}
-#Space {
-  margin: 5%;
-  background: #f8fafc;
-  height: 70px;
-  border: 2px solid #94a3b8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #475569;
-  font-weight: bold;
-  border-radius: 4px;
-}
+      /* -------------------- HEADER -------------------- */
+      #header {
+        background: var(--primary);
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-/* FOOTER PAGES */
-#Pages {
-  clear: both;
-  padding: 15px;
-  background: #1e3a5f;
-  color: #f5f5f5;
-  margin-top: 30px;
-}
-#Pages ul {
-  float: none;
-  margin-top: 10px;
-}
-#Pages li {
-  display: inline-block;
-  padding: 5px 8px;
-}
-#Pages a {
-  color: #f5f5f5;
-  text-decoration: none;
-}
-#Pages a:hover {
-  background: #3c6e91;
-  border-radius: 3px;
-}
-</style>
-</head>
-<body>
-<!-- Header -->
-<div id="header">
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Our Services</a></li>
-      <li><a href="#">Insights</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-  <div id="title">
-    Tempest Firm
-    <address># 10 Innovation Drive, Metropolis City</address>
-  </div>
-</div>
+      #title {
+        font-size: clamp(20px, 2vw, 26px);
+        font-weight: bold;
+        color: var(--light);
+        margin: 10px 0;
+        text-align: right;
+      }
 
-<!-- Main Content -->
-<div id="Des">
-  <h1 id="Middle">Firm Insights Blog</h1>
-</div>
+      #title address {
+        font-size: 14px;
+        color: #d0d8e0;
+        margin: 5px 0 0;
+        font-style: normal;
+      }
 
-<div>
-  <!-- Sidebar -->
-  <div id="LinksRight">
-    <h2>Categories</h2>
-    <ul id="mee">
-      <li><a href="#">Strategy</a></li>
-      <li><a href="#">Finance</a></li>
-      <li><a href="#">Technology</a></li>
-      <li><a href="#">Marketing</a></li>
-      <li><a href="#">Leadership</a></li>
-    </ul>
-    <h2>Authors</h2>
-    <ul id="mee">
-      <li><a href="#">Ava Storm</a></li>
-      <li><a href="#">Lucas Trent</a></li>
-      <li><a href="#">Maya Cole</a></li>
-      <li><a href="#">Reid Carter</a></li>
-    </ul>
-  </div>
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 8px 10px;
+        backdrop-filter: blur(10px);
+      }
 
-  <!-- Posts -->
-  <div id="AllPost">
-    <div id="PostTopic">Adapting to Global Markets</div>
-    <div id="PostDate">07/21/2025</div>
-    <div id="PostPicture">150 x 150</div>
-    <div id="Post">
-      <p>At Tempest Firm, we believe that adapting to global markets requires insight, agility, and innovation. Businesses today operate in a fast‑changing world where consumer behavior, technology, and regulations evolve rapidly.</p>
-      <p>Our team of analysts regularly provides strategies that help clients pivot effectively. By analyzing market trends, companies can anticipate challenges and position themselves for long‑term growth and sustainability.</p>
+      nav li a {
+        color: var(--light);
+        text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      nav li a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      /* -------------------- DESCRIPTION -------------------- */
+      #Des {
+        text-align: center;
+        background: linear-gradient(to right, #345d82, var(--gray));
+        padding: 40px 10px;
+        color: var(--light);
+      }
+
+      #Middle {
+        font-size: clamp(22px, 4vw, 32px);
+        margin: 0;
+        font-weight: 400;
+      }
+
+      /* -------------------- MAIN CONTENT -------------------- */
+      .main-content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 30px 5%;
+        gap: 30px;
+      }
+
+      /* -------------------- SIDEBAR -------------------- */
+      #LinksRight {
+        flex: 1 1 250px;
+        max-width: 280px;
+      }
+
+      #LinksRight h2 {
+        color: var(--primary);
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 8px;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+
+      #mee {
+        list-style: disc;
+        margin-left: 20px;
+        color: var(--primary);
+      }
+
+      #mee li {
+        margin: 8px 0;
+      }
+
+      #mee a {
+        text-decoration: none;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      #mee a:hover {
+        color: var(--accent);
+      }
+
+      /* -------------------- POSTS -------------------- */
+      #AllPost {
+        flex: 3 1 600px;
+        background: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      #PostTopic {
+        font-size: clamp(20px, 2.2vw, 26px);
+        font-weight: bold;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      #PostDate {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      #PostPicture {
+        background: #64748b;
+        height: 150px;
+        width: 150px;
+        color: var(--light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        border-radius: 8px;
+        float: right;
+        margin-left: 20px;
+        margin-bottom: 10px;
+      }
+
+      #Post {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      #PostDetails {
+        background: var(--gray);
+        color: var(--primary);
+        border: 2px solid #cbd5e1;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        border-radius: 6px;
+      }
+
+      #PostDetails a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      #PostDetails a:hover {
+        text-decoration: underline;
+      }
+
+      #Space {
+        background: #f8fafc;
+        padding: 20px;
+        border: 2px dashed #94a3b8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #475569;
+        font-weight: bold;
+        border-radius: 6px;
+        margin: 25px 0;
+        text-align: center;
+      }
+
+      /* -------------------- FOOTER -------------------- */
+      #Pages {
+        background: var(--primary);
+        color: var(--light);
+        padding: 30px 10px;
+        text-align: center;
+      }
+
+      #Pages ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      #Pages li {
+        display: inline-block;
+      }
+
+      #Pages a {
+        color: var(--light);
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      #Pages a:hover {
+        background: var(--accent);
+      }
+
+      /* -------------------- RESPONSIVE DESIGN -------------------- */
+
+      @media (max-width: 992px) {
+        .main-content {
+          flex-direction: column;
+          padding: 20px;
+        }
+        #LinksRight {
+          max-width: 100%;
+          order: 2;
+        }
+        #AllPost {
+          order: 1;
+        }
+      }
+
+      @media (max-width: 600px) {
+        #header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        #title {
+          text-align: left;
+          width: 100%;
+        }
+
+        nav ul {
+          justify-content: space-around;
+          width: 100%;
+        }
+
+        #PostPicture {
+          float: none;
+          margin: 0 auto 20px;
+        }
+
+        #PostDate {
+          text-align: center;
+        }
+
+        #Des {
+          padding: 30px 10px;
+        }
+
+        #Middle {
+          font-size: 22px;
+        }
+
+        #LinksRight h2 {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        nav li a {
+          padding: 8px 10px;
+          font-size: 14px;
+        }
+
+        #Post {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Insights</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="title">
+        Tempest Firm
+        <address># 10 Innovation Drive, Metropolis City</address>
+      </div>
     </div>
-    <div id="PostDetails">
-      Authors: <a href="#">Ava Storm</a> &nbsp;&nbsp;&nbsp; Comments: <a href="#">12</a>
+
+    <!-- Description -->
+    <div id="Des">
+      <h1 id="Middle">Firm Insights Blog</h1>
     </div>
 
-    <div id="Space">Advert Space – Partner With Us</div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <div id="LinksRight">
+        <h2>Categories</h2>
+        <ul id="mee">
+          <li><a href="#">Strategy</a></li>
+          <li><a href="#">Finance</a></li>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Marketing</a></li>
+          <li><a href="#">Leadership</a></li>
+        </ul>
+        <h2>Authors</h2>
+        <ul id="mee">
+          <li><a href="#">Ava Storm</a></li>
+          <li><a href="#">Lucas Trent</a></li>
+          <li><a href="#">Maya Cole</a></li>
+          <li><a href="#">Reid Carter</a></li>
+        </ul>
+      </div>
 
-    <div id="PostTopic">Emerging Tech Trends</div>
-    <div id="PostDate">07/18/2025</div>
-    <div id="PostPicture">150 x 150</div>
-    <div id="Post">
-      <p>The technological landscape is changing faster than ever. Cloud computing, artificial intelligence, and sustainable solutions are no longer optional but essential for modern enterprises.</p>
-      <p>Tempest Firm consultants work closely with organizations to identify and implement these advancements, ensuring they remain competitive and innovative in a demanding market.</p>
+      <!-- Posts -->
+      <div id="AllPost">
+        <div id="PostTopic">Adapting to Global Markets</div>
+        <div id="PostDate">07/21/2025</div>
+        <div id="PostPicture">150 x 150</div>
+        <div id="Post">
+          <p>
+            At Tempest Firm, we believe that adapting to global markets requires
+            insight, agility, and innovation. Businesses today operate in a
+            fast-changing world where consumer behavior, technology, and
+            regulations evolve rapidly.
+          </p>
+          <p>
+            Our team of analysts regularly provides strategies that help clients
+            pivot effectively. By analyzing market trends, companies can
+            anticipate challenges and position themselves for long-term growth
+            and sustainability.
+          </p>
+        </div>
+        <div id="PostDetails">
+          Authors: <a href="#">Ava Storm</a> &nbsp;&nbsp;&nbsp; Comments:
+          <a href="#">12</a>
+        </div>
+
+        <div id="Space">Advert Space – Partner With Us</div>
+
+        <div id="PostTopic">Emerging Tech Trends</div>
+        <div id="PostDate">07/18/2025</div>
+        <div id="PostPicture">150 x 150</div>
+        <div id="Post">
+          <p>
+            The technological landscape is changing faster than ever. Cloud
+            computing, artificial intelligence, and sustainable solutions are no
+            longer optional but essential for modern enterprises.
+          </p>
+          <p>
+            Tempest Firm consultants work closely with organizations to identify
+            and implement these advancements, ensuring they remain competitive
+            and innovative in a demanding market.
+          </p>
+        </div>
+        <div id="PostDetails">
+          Authors: <a href="#">Lucas Trent</a> &nbsp;&nbsp;&nbsp; Comments:
+          <a href="#">8</a>
+        </div>
+
+        <div id="Space">Advert Space – Showcase Your Brand</div>
+      </div>
     </div>
-    <div id="PostDetails">
-      Authors: <a href="#">Lucas Trent</a> &nbsp;&nbsp;&nbsp; Comments: <a href="#">8</a>
+
+    <!-- Footer -->
+    <div id="Pages">
+      &copy; <em>2025</em> <strong>Tempest Firm</strong>
+      <ul>
+        <li>Previous</li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li>...</li>
+        <li><a href="#">11</a></li>
+        <li><a href="#">12</a></li>
+        <li>Next</li>
+      </ul>
     </div>
-
-    <div id="Space">Advert Space – Showcase Your Brand</div>
-  </div>
-</div>
-
-<!-- Footer -->
-<div id="Pages">
-  &copy; <em>2025</em> <strong>Tempest Firm</strong>
-  <ul>
-    <li>Previous</li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li>...</li>
-    <li><a href="#">11</a></li>
-    <li><a href="#">12</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</div>
-</body>
+  </body>
 </html>
